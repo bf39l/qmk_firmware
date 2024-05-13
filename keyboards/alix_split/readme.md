@@ -8,7 +8,8 @@
 * Hardware Supported: *The PCBs, controllers supported*
 * Hardware Availability: *Links to where you can find this hardware*
 
-Manual Compile firmware for this keyboard
+Manual Compile firmware for this keyboard:
+
     qmk compile -kb alix_split -km default
 
 Make example for this keyboard (after setting up your build environment):
