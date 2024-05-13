@@ -1,6 +1,6 @@
 # alix_split
 
-![alix_split](https://imgur.com/O8kq2SM)
+![alix_split](https://imgur.com/O8kq2SM.jpg)
 
 *A short description of the keyboard/project*
 
