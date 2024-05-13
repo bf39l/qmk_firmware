@@ -1,12 +1,15 @@
 # alix_split
 
-![alix_split](imgur.com image replace me!)
+![alix_split](https://imgur.com/O8kq2SM)
 
 *A short description of the keyboard/project*
 
 * Keyboard Maintainer: [Bo Liu](https://github.com/bf39l)
 * Hardware Supported: *The PCBs, controllers supported*
 * Hardware Availability: *Links to where you can find this hardware*
+
+Manual Compile firmware for this keyboard
+    qmk compile -kb alix_split -km default
 
 Make example for this keyboard (after setting up your build environment):
 
