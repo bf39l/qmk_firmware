@@ -5,7 +5,7 @@
 #include "i2c_master.h"
 #include "debug.h"
 
-#define TIMEOUT 50
+#define TIMEOUT 500
 
 // TODO: remove patch
 #ifdef PROTOCOL_CHIBIOS
@@ -68,33 +68,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+uint16_t ping_timer = 0;
+uint8_t address = 255; //126;
 void do_scan(void) {
     uint8_t nDevices = 0;
 
     dprintf("Scanning...\n");
-
-    for (uint8_t address = 1; address < 127; address++) {
-        // The i2c_scanner uses the return value of
-        // i2c_ping_address to see if a device did acknowledge to the address.
+    if (address >= 0) {
         i2c_status_t error = i2c_ping_address(address << 1, TIMEOUT);
         if (error == I2C_STATUS_SUCCESS) {
             dprintf("  I2C device found at address 0x%02X\n", address);
+            
             nDevices++;
         } else {
-            // dprintf("  Unknown error (%u) at address 0x%02X\n", error, address);
+            dprintf("  Unknown error (%u) at address 0x%02X\n", error, address);
         }
     }
+    address--;
 
-    if (nDevices == 0)
+    if (nDevices == 0 && address < 0)
         dprintf("No I2C devices found\n");
     else
-        dprintf("done\n");
+        dprintf("done address: %d\n", address);
 }
 
 uint16_t scan_timer = 0;
 
 void matrix_scan_user(void) {
-    if (timer_elapsed(scan_timer) > 5000) {
+    if (timer_elapsed(scan_timer) > 3000) {
         do_scan();
         scan_timer = timer_read();
     }
