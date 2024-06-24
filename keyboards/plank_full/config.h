@@ -80,12 +80,9 @@
 // #define HAL_USE_SIO TRUE
 // #include_next <halconf.h>
 
-#include_next <mcuconf.h> // for i2c
-#undef RP_I2C_USE_I2C0
-#define RP_I2C_USE_I2C0 TRUE
-#undef RP_I2C_USE_I2C1
-#define RP_I2C_USE_I2C1 TRUE
+// #include_next <mcuconf.h> // for i2c
 
+#define POINTING_DEVICE_DEBUG
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 // This enables transmitting the pointing device status
 // to the master side of the split keyboard.
@@ -98,10 +95,12 @@
 // #define SPLIT_POINTING_ENABLE
 // #define POINTING_DEVICE_COMBINED
 #define AZOTEQ_IQS5XX_TPS65
-#define AZOTEQ_IQS5XX_ADDRESS 0xE8
+// #define AZOTEQ_IQS5XX_ADDRESS 0xE9
 #define AZOTEQ_IQS5XX_TIMEOUT_MS 10
-// #define AZOTEQ_IQS5XX_WIDTH_MM 77
-// #define AZOTEQ_IQS5XX_HEIGHT_MM 48
+// #undef AZOTEQ_IQS5XX_WIDTH_MM
+// #define AZOTEQ_IQS5XX_WIDTH_MM 63
+// #undef AZOTEQ_IQS5XX_HEIGHT_MM
+// #define AZOTEQ_IQS5XX_HEIGHT_MM 47
 // #define POINTING_DEVICE_LEFT
 // #define AZOTEQ_IQS5XX_ACTIVE
 
