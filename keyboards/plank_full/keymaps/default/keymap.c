@@ -60,42 +60,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #include "print.h"
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  // If console is enabled, it will print the matrix position and status of each key pressed
-#ifdef CONSOLE_ENABLE
-    uprintf("KL: kc: 0x%04X, col: %2u, row: %2u, pressed: %u, time: %5u, int: %u, count: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed, record->event.time, record->tap.interrupted, record->tap.count);
-#endif 
-    return true;
-}
-
-uint16_t ping_timer = 0;
-uint8_t address = 255; //126;
 void do_scan(void) {
     uint8_t nDevices = 0;
 
     dprintf("Scanning...\n");
-    if (address >= 0) {
+
+    for (uint8_t address = 1; address < 127; address++) {
+        // The i2c_scanner uses the return value of
+        // i2c_ping_address to see if a device did acknowledge to the address.
         i2c_status_t error = i2c_ping_address(address << 1, TIMEOUT);
         if (error == I2C_STATUS_SUCCESS) {
             dprintf("  I2C device found at address 0x%02X\n", address);
-            
             nDevices++;
         } else {
-            dprintf("  Unknown error (%u) at address 0x%02X\n", error, address);
+            // dprintf("  Unknown error (%u) at address 0x%02X\n", error, address);
         }
     }
-    address--;
 
-    if (nDevices == 0 && address < 0)
+    if (nDevices == 0)
         dprintf("No I2C devices found\n");
     else
-        dprintf("done address: %d\n", address);
+        dprintf("done\n");
 }
 
 uint16_t scan_timer = 0;
 
 void matrix_scan_user(void) {
-    if (timer_elapsed(scan_timer) > 3000) {
+    if (timer_elapsed(scan_timer) > 5000) {
         do_scan();
         scan_timer = timer_read();
     }
@@ -108,6 +99,60 @@ void keyboard_post_init_user(void) {
     i2c_init();
     scan_timer = timer_read();
 }
+
+
+
+////////////////////////////////////////////////////
+// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//   // If console is enabled, it will print the matrix position and status of each key pressed
+// #ifdef CONSOLE_ENABLE
+//     uprintf("KL: kc: 0x%04X, col: %2u, row: %2u, pressed: %u, time: %5u, int: %u, count: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed, record->event.time, record->tap.interrupted, record->tap.count);
+// #endif 
+//     return true;
+// }
+
+// uint16_t ping_timer = 0;
+// uint8_t address = 255; //126;
+// void do_scan(void) {
+//     uint8_t nDevices = 0;
+
+//     dprintf("Scanning...\n");
+//     if (address >= 0) {
+//         i2c_status_t error = i2c_ping_address(address << 1, TIMEOUT);
+//         if (error == I2C_STATUS_SUCCESS) {
+//             dprintf("  I2C device found at address 0x%02X\n", address);
+            
+//             nDevices++;
+//         } else {
+//             dprintf("  Unknown error (%u) at address 0x%02X\n", error, address);
+//         }
+//     }
+//     address--;
+
+//     if (nDevices == 0 && address < 0)
+//         dprintf("No I2C devices found\n");
+//     else
+//         dprintf("done address: %d\n", address);
+// }
+
+// uint16_t scan_timer = 0;
+
+// void matrix_scan_user(void) {
+//     if (timer_elapsed(scan_timer) > 3000) {
+//         do_scan();
+//         scan_timer = timer_read();
+//     }
+// }
+
+// void keyboard_post_init_user(void) {
+//     debug_enable = true;
+//     debug_matrix = true;
+
+//     i2c_init();
+//     scan_timer = timer_read();
+// }
+////////////////////////////////////////////////////
+
 
 // report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
 //     dprintf("pointing_device_task_user\n");
