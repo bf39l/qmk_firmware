@@ -14,3 +14,4 @@ POINTING_DEVICE_ENABLE = yes
 POINTING_DEVICE_DRIVER = pimoroni_trackball
 
 MOUSEKEY_ENABLE = yes
+RAW_ENABLE = yes # 
