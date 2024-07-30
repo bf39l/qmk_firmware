@@ -25,27 +25,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     */
 
     [0] = LAYOUT_def(
-        KC_ESC,  KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5,                                 KC_F6,   KC_F7,  KC_F8,   KC_F9,    KC_F10,  KC_F11,  KC_F12,  KC_BSPC,
+        KC_ESC,  KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5,                                 KC_F6,   KC_F7,  KC_F8,   KC_F9,    KC_F10,  KC_F11,  KC_F12,  KC_DEL,
         KC_GRV,  KC_1,    KC_2,    KC_3,   KC_4,    KC_5,                                  KC_6,    KC_7,   KC_8,    KC_9,     KC_0,    KC_MINS, KC_EQL,  KC_BSPC,
         KC_TAB,  KC_Q,    KC_W,    KC_E,   KC_R,    KC_T,                                  KC_Y,    KC_U,   KC_I,    KC_O,     KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,
-        KC_LCTL, KC_A,    KC_S,    KC_D,   KC_F,    KC_G,                                  KC_H,    KC_J,   KC_K,    KC_L,     KC_SCLN, KC_QUOT, KC_ENT,  KC_NO,
+        KC_CAPS, KC_A,    KC_S,    KC_D,   KC_F,    KC_G,                                  KC_H,    KC_J,   KC_K,    KC_L,     KC_SCLN, KC_QUOT, KC_ENT,  KC_NO,
         KC_LSFT, KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,                                  KC_N,    KC_M,   KC_COMM, KC_DOT,   KC_SLSH, KC_RSFT, MO(2),   KC_NO,
-                 KC_LCTL,   KC_LALT,  KC_LGUI,    KC_SPC,  KC_BTN1, DRAG_SCROLL, KC_BTN2,  MO(1),   KC_RGUI, KC_RALT, KC_RCTL, TG(3),         KC_NO,   KC_NO
+                 KC_LCTL,   KC_LALT,  KC_LGUI,    KC_SPC,  KC_BTN1, KC_BTN3, KC_BTN2,  MO(1),   KC_RGUI, KC_RALT, KC_RCTL, TG(3),         KC_NO,   KC_NO
     ),
     [1] = LAYOUT_mod2(
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_BSPC,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_DEL,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, LALT(KC_LEFT), KC_UP,   LALT(KC_RIGHT), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_CAPS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, KC_LEFT,       KC_DOWN, KC_RIGHT,       KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, LGUI(KC_LEFT), KC_TRNS, LGUI(KC_RIGHT), KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_NO,   LALT(KC_LEFT), KC_UP,   LALT(KC_RIGHT), KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_NO,   KC_LEFT,       KC_DOWN, KC_RIGHT,       KC_NO,   KC_TRNS, KC_TRNS, KC_NO,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_NO,   LGUI(KC_LEFT), KC_NO,   LGUI(KC_RIGHT), KC_NO,   KC_TRNS, KC_TRNS, KC_NO,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                    KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS,        KC_TRNS, KC_NO, KC_NO
     ),
     [2] = LAYOUT_mod(
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS,  KC_TRNS, KC_BSPC,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS,        KC_TRNS, KC_UP,    KC_HOME, KC_DEL,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, LALT(KC_LEFT), KC_UP,   LALT(KC_RIGHT), KC_LEFT, KC_RIGHT, KC_END,  KC_TRNS,
-        KC_CAPS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, KC_LEFT,       KC_DOWN, KC_RIGHT,       KC_TRNS, KC_DOWN,  KC_TRNS, KC_NO,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_TRNS, LGUI(KC_LEFT), KC_TRNS, LGUI(KC_RIGHT), KC_TRNS, KC_TRNS,  KC_TRNS, KC_NO,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_NO,   LALT(KC_LEFT), KC_UP,   LALT(KC_RIGHT), KC_LEFT, KC_RIGHT, KC_END,  KC_TRNS,
+        KC_CAPS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_NO,   KC_LEFT,       KC_DOWN, KC_RIGHT,       KC_NO,   KC_DOWN,  KC_TRNS, KC_NO,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                              KC_NO,   LGUI(KC_LEFT), KC_NO,   LGUI(KC_RIGHT), KC_NO,   KC_NO,    KC_TRNS, KC_NO,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                    KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS,        KC_TRNS, KC_NO, KC_NO
     ),
     [3] = LAYOUT_conf(
@@ -104,12 +104,12 @@ bool oled_task_user(void) {
 
     // Host Keyboard LED Status
     led_t led_state = host_keyboard_led_state();
-    if (led_state.caps_lock || led_state.num_lock || led_state.scroll_lock) {
-        oled_write_P(PSTR("-----\n"), false);
-    }
-    oled_write_P(led_state.caps_lock ? PSTR("C") : PSTR(" "), false); //CAP
-    oled_write_P(led_state.num_lock ? PSTR("N") : PSTR(" "), false); //NUM
-    oled_write_P(led_state.scroll_lock ? PSTR("S") : PSTR(" "), false); //SCR
+    // if (led_state.caps_lock || led_state.num_lock || led_state.scroll_lock) {
+    //     oled_write_P(PSTR("-----\n"), false);
+    // }
+    oled_write_P(led_state.caps_lock ? PSTR("Cap") : PSTR("   "), false); //CAP
+    oled_write_P(led_state.num_lock ? PSTR("Num") : PSTR("   "), false); //NUM
+    oled_write_P(led_state.scroll_lock ? PSTR("Scr") : PSTR("   "), false); //SCR
     
     return false;
 }
@@ -145,41 +145,65 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 float scroll_accumulated_h = 0;
 float scroll_accumulated_v = 0;
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
-    if (set_scrolling) {
-        // mouse_report.h = -1 * mouse_report.x;
-        // mouse_report.v = -1 * mouse_report.y;
-        // mouse_report.x = 0;
-        // mouse_report.y = 0;
-        // Calculate and accumulate scroll values based on mouse movement and divisors
-        scroll_accumulated_h += (float)mouse_report.x / SCROLL_DIVISOR_H * -1;
-        scroll_accumulated_v += (float)mouse_report.y / SCROLL_DIVISOR_V * -1;
+    if (mouse_report.h != 0) {
+        scroll_accumulated_h += (float)mouse_report.h / SCROLL_DIVISOR_H * -1;
 
         // Assign integer parts of accumulated scroll values to the mouse report
         mouse_report.h = (int8_t)scroll_accumulated_h;
-        mouse_report.v = (int8_t)scroll_accumulated_v;
 
         // Update accumulated scroll values by subtracting the integer parts
         scroll_accumulated_h -= (int8_t)scroll_accumulated_h;
+    }
+    if (mouse_report.v != 0) {
+        scroll_accumulated_v += (float)mouse_report.v / SCROLL_DIVISOR_V * -1;
+
+        // Assign integer parts of accumulated scroll values to the mouse report
+        mouse_report.v = (int8_t)scroll_accumulated_v;
+
+        // Update accumulated scroll values by subtracting the integer parts
         scroll_accumulated_v -= (int8_t)scroll_accumulated_v;
-
-        // Clear the X and Y values of the mouse report
-        mouse_report.x = 0;
-        mouse_report.y = 0;
-    } else {
-        scroll_accumulated_h = 0;
-        scroll_accumulated_v = 0;
-
-        // if (precise_on == false) {
-        //     mouse_report.x = (mouse_report.x> 0? mouse_report.x * mouse_report.x / 16 + mouse_report.x : -mouse_report.x * mouse_report.x / 16 + mouse_report.x);
-        //     mouse_report.y = (mouse_report.y> 0? mouse_report.y * mouse_report.y / 16 + mouse_report.y : -mouse_report.y * mouse_report.y / 16 + mouse_report.y);
-        //     // float magnitude = sqrtf(mouse_report.x * mouse_report.x + mouse_report.y * mouse_report.y);
-        //     // float adjusted_magnitude = powf(magnitude, 0.3f);
-        //     // mouse_report.x = (int16_t)(mouse_report.x * adjusted_magnitude);
-        //     // mouse_report.y = (int16_t)(mouse_report.y * adjusted_magnitude);
-        // } else {
-        //     mouse_report.x -= mouse_report.x / 8.0;
-        //     mouse_report.y -= mouse_report.y / 8.0;
-        // }
     }
     return mouse_report;
 }
+
+
+
+// report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+//     if (set_scrolling) {
+//         // mouse_report.h = -1 * mouse_report.x;
+//         // mouse_report.v = -1 * mouse_report.y;
+//         // mouse_report.x = 0;
+//         // mouse_report.y = 0;
+//         // Calculate and accumulate scroll values based on mouse movement and divisors
+//         scroll_accumulated_h += (float)mouse_report.x / SCROLL_DIVISOR_H * -1;
+//         scroll_accumulated_v += (float)mouse_report.y / SCROLL_DIVISOR_V * -1;
+
+//         // Assign integer parts of accumulated scroll values to the mouse report
+//         mouse_report.h = (int8_t)scroll_accumulated_h;
+//         mouse_report.v = (int8_t)scroll_accumulated_v;
+
+//         // Update accumulated scroll values by subtracting the integer parts
+//         scroll_accumulated_h -= (int8_t)scroll_accumulated_h;
+//         scroll_accumulated_v -= (int8_t)scroll_accumulated_v;
+
+//         // Clear the X and Y values of the mouse report
+//         mouse_report.x = 0;
+//         mouse_report.y = 0;
+//     } else {
+//         // scroll_accumulated_h = 0;
+//         // scroll_accumulated_v = 0;
+
+//         // if (precise_on == false) {
+//         //     mouse_report.x = (mouse_report.x> 0? mouse_report.x * mouse_report.x / 16 + mouse_report.x : -mouse_report.x * mouse_report.x / 16 + mouse_report.x);
+//         //     mouse_report.y = (mouse_report.y> 0? mouse_report.y * mouse_report.y / 16 + mouse_report.y : -mouse_report.y * mouse_report.y / 16 + mouse_report.y);
+//         //     // float magnitude = sqrtf(mouse_report.x * mouse_report.x + mouse_report.y * mouse_report.y);
+//         //     // float adjusted_magnitude = powf(magnitude, 0.3f);
+//         //     // mouse_report.x = (int16_t)(mouse_report.x * adjusted_magnitude);
+//         //     // mouse_report.y = (int16_t)(mouse_report.y * adjusted_magnitude);
+//         // } else {
+//         //     mouse_report.x -= mouse_report.x / 8.0;
+//         //     mouse_report.y -= mouse_report.y / 8.0;
+//         // }
+//     }
+//     return mouse_report;
+// }
