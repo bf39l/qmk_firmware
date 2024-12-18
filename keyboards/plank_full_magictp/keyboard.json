@@ -117,7 +117,7 @@
                 {"matrix": [5, 13], "x": 13, "y": 5}
             ]
         },
-        "LAYOUT_mod": {
+        "LAYOUT_mod1": {
             "layout": [
                 {"matrix": [0, 0],  "x": 0,  "y": 0},
                 {"matrix": [0, 1],  "x": 1,  "y": 0},
