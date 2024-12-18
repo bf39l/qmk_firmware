@@ -15,3 +15,6 @@ POINTING_DEVICE_DRIVER = pimoroni_trackball
 
 MOUSEKEY_ENABLE = yes
 RAW_ENABLE = yes # 
+
+# https://docs.qmk.fm/tap_hold
+DYNAMIC_TAPPING_TERM_ENABLE = yes
