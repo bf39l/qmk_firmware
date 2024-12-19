@@ -16,6 +16,10 @@
         "cols": ["GP2", "GP3", "GP4", "GP5", "GP6", "GP8", "GP9"],
         "rows": ["GP10", "GP11", "GP12", "GP13", "GP14"]
     },
+    "matrix": {
+        "rows": 10,
+        "cols": 7
+    },
     "split": {
         "enabled": true
     },
@@ -23,8 +27,8 @@
     "url": "",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0x0000",
-        "vid": "0xFEED"
+        "pid": "0x0002",
+        "vid": "0x4153"
     },
     "layouts": {
         "LAYOUT_def": {
