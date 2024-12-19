@@ -4,13 +4,17 @@
 
 *A short description of the keyboard/project*
 
-* Keyboard Maintainer: [Bo Liu](https://github.com/bf39l)
+* Keyboard Maintainer: [bf39L](https://github.com/bf39l)
 * Hardware Supported: *The PCBs, controllers supported*
 * Hardware Availability: *Links to where you can find this hardware*
 
 Manual Compile firmware for this keyboard:
 
     qmk compile -kb alix_split -km default
+
+Via:
+
+    qmk compile -kb alix_split -km via
 
 Make example for this keyboard (after setting up your build environment):
 
