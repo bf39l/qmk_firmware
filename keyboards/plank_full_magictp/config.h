@@ -54,5 +54,29 @@
 
 #define OLED_BRIGHTNESS 128
 
+#define HAL_USE_I2C TRUE
+#define HAL_USE_PWM TRUE
+#define HAL_USE_ADC TRUE
+// #define HAL_USE_SIO TRUE
+
+#include_next <halconf.h>
+
+#include_next <mcuconf.h> // for i2c
+
+#undef RP_PWM_USE_PWM0
+#define RP_PWM_USE_PWM0 TRUE
+
+#undef RP_PWM_USE_PWM4
+#define RP_PWM_USE_PWM4 TRUE
+
+#undef RP_I2C_USE_I2C0
+#define RP_I2C_USE_I2C0 TRUE
+#undef RP_I2C_USE_I2C1
+#define RP_I2C_USE_I2C1 TRUE
+
 // #undef FORCE_NKRO
 // #define FORCE_NKRO
+
+// https://docs.qmk.fm/tap_hold
+#define TAPPING_TERM 200
+#define DYNAMIC_TAPPING_TERM_INCREMENT 5

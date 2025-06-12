@@ -1,5 +1,5 @@
 {
-    "manufacturer": "Bo Liu",
+    "manufacturer": "bf39L",
     "keyboard_name": "plank_full_magictp",
     "maintainer": "bf39L",
     "bootloader": "rp2040",
@@ -16,12 +16,16 @@
         "cols": ["GP7", "GP6", "GP5", "GP4", "GP3", "GP2", "GP8", "GP9", "GP10", "GP11", "GP12", "GP13", "GP14", "GP15"],
         "rows": ["GP26", "GP22", "GP19", "GP18", "GP17", "GP16"]
     },
+    "matrix": {
+        "rows": 6,
+        "cols": 14
+    },
     "processor": "RP2040",
     "url": "",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0x0000",
-        "vid": "0xFEED"
+        "pid": "0x0001",
+        "vid": "0x4154"
     },
     "layouts": {
         "LAYOUT_def": {
