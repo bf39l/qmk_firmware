@@ -12,6 +12,10 @@ Make example for this keyboard (after setting up your build environment):
 
     make plank_full_magictp:default
 
+
+    qmk compile -kb plank_full_magictp -km default
+    qmk compile -kb plank_full_magictp -km via
+
 Flashing example for this keyboard:
 
     make plank_full_magictp:default:flash

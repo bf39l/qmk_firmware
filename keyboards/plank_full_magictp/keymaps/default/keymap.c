@@ -3,7 +3,7 @@
 
 #include QMK_KEYBOARD_H
 
-#include "i2c_master.h"
+// #include "i2c_master.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
