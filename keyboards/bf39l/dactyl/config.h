@@ -105,3 +105,6 @@
 // https://docs.qmk.fm/tap_hold
 #define TAPPING_TERM 200
 #define DYNAMIC_TAPPING_TERM_INCREMENT 5
+
+#undef DYNAMIC_KEYMAP_LAYER_COUNT
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5
