@@ -1,3 +1,6 @@
+// Copyright 2023 Bo Liu (@bf39l)
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 #pragma once
 
 #define HAL_USE_I2C TRUE

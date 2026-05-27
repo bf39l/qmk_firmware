@@ -1,12 +1,10 @@
 # plank_full_magictp
 
-![plank_full_magictp](imgur.com image replace me!)
-
-*A short description of the keyboard/project*
+Plank Full variant with magic trackpad support.
 
 * Keyboard Maintainer: [Bo Liu](https://github.com/bf39L)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
+* Hardware Supported: Plank Full PCB, RP2040 controllers, magic trackpad support
+* Hardware Availability: See the PCB and trackpad integration sources in this repository
 
 Make example for this keyboard (after setting up your build environment):
 

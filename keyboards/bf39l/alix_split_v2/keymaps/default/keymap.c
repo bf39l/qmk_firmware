@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,  HYPR_T(KC_ESC),
         KC_TAB,         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,  KC_LBRC,
         MEH_T(KC_ESC),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,  KC_RBRC,
-        KC_LSFT,        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                 MO(3),
+        KC_LSFT,        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                 TO(3),
         KC_LCTL,        KC_NO, KC_NO,     KC_LALT, KC_LGUI,        KC_SPC,        KC_BSPC,
 
 
@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,  MEH_T(KC_ESC),
         KC_TAB,         KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,  KC_LBRC,
         MEH_T(KC_ESC),  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,  KC_RBRC,
-        KC_LSFT,        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                 MO(3),
+        KC_LSFT,        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                 TO(3),
         KC_LCTL,        KC_NO, KC_NO,     KC_LALT, KC_LGUI,        KC_SPC,        KC_BSPC,
 
 
@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         QK_BOOT, KC_NO, KC_NO, KC_NO, KC_NO, DT_PRNT, TO(0),
         NK_ON,   NK_OFF,  KC_NO, KC_NO, KC_NO, KC_NO, DT_UP,
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, DT_DOWN,
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,          KC_NO,
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,          TO(0),
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,          KC_NO, KC_NO,
 
                  QK_BOOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, TO(0),
@@ -76,6 +76,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #ifdef OLED_ENABLE
+#ifndef OLED_TIMEOUT
+#define OLED_TIMEOUT 30000
+#endif
+
 static const char PROGMEM sit[2][96] = {
     {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x1c, 0x02, 0x05, 0x02, 0x24, 0x04, 0x04, 0x02, 0xa9, 0x1e, 0xe0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x10, 0x08, 0x68, 0x10, 0x08, 0x04, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x06, 0x82, 0x7c, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x0c, 0x10, 0x10, 0x20, 0x20, 0x20, 0x28, 0x3e, 0x1c, 0x20, 0x20, 0x3e, 0x0f, 0x11, 0x1f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -105,6 +109,14 @@ static const char PROGMEM run[2][96] = {
 
 static uint8_t current_frame = 0;
 static uint32_t anim_timer = 0;
+static os_variant_t current_host_os = OS_UNSURE;
+
+typedef enum {
+    TOPLINE_MODE_HOST = 0,
+    TOPLINE_MODE_WPM,
+} topline_mode_t;
+
+static topline_mode_t topline_mode = TOPLINE_MODE_HOST;
 
 static const uint8_t glyph_3[5] = {0x21, 0x41, 0x45, 0x4B, 0x31};
 static const uint8_t glyph_9[5] = {0x06, 0x49, 0x49, 0x29, 0x1E};
@@ -113,6 +125,7 @@ static const uint8_t glyph_B[5] = {0x7F, 0x49, 0x49, 0x49, 0x36};
 static const uint8_t glyph_C[5] = {0x3E, 0x41, 0x41, 0x41, 0x22};
 static const uint8_t glyph_F[5] = {0x7F, 0x09, 0x09, 0x09, 0x01};
 static const uint8_t glyph_H[5] = {0x7F, 0x08, 0x08, 0x08, 0x7F};
+static const uint8_t glyph_I[5] = {0x00, 0x41, 0x7F, 0x41, 0x00};
 static const uint8_t glyph_K[5] = {0x7F, 0x08, 0x14, 0x22, 0x41};
 static const uint8_t glyph_L[5] = {0x7F, 0x40, 0x40, 0x40, 0x40};
 static const uint8_t glyph_M[5] = {0x7F, 0x02, 0x0C, 0x02, 0x7F};
@@ -144,6 +157,8 @@ static const uint8_t *glyph_5x7(char c) {
             return glyph_F;
         case 'H':
             return glyph_H;
+        case 'I':
+            return glyph_I;
         case 'K':
             return glyph_K;
         case 'L':
@@ -253,6 +268,25 @@ static void render_slave_status(void) {
     oled_clear();
 }
 
+static const char *host_os_label(void) {
+    switch (current_host_os) {
+        case OS_MACOS:
+        case OS_IOS:
+            return "MAC";
+        case OS_WINDOWS:
+            return "WIN";
+        case OS_LINUX:
+            return "LIN";
+        default:
+            return "UNKN";
+    }
+}
+
+bool process_detected_host_os_user(os_variant_t detected_os) {
+    current_host_os = detected_os;
+    return true;
+}
+
 static const char *layer_label(void) {
     switch (get_highest_layer(layer_state | default_layer_state)) {
         case 0:
@@ -304,6 +338,10 @@ static void render_lock_lines(led_t led_state, uint8_t base_line) {
     oled_write(line, false);
 }
 
+static void render_host_os_line(void) {
+    oled_write(host_os_label(), false);
+}
+
 static void render_wpm_line(void) {
     char line[17];
 
@@ -315,9 +353,31 @@ static void render_wpm_line(void) {
 #endif
 }
 
+void set_oled_topline_mode(const char *mode) {
+    if (mode == NULL) {
+        return;
+    }
+
+    if (strcmp(mode, "wpm") == 0) {
+        topline_mode = TOPLINE_MODE_WPM;
+    } else if (strcmp(mode, "host") == 0) {
+        topline_mode = TOPLINE_MODE_HOST;
+    }
+}
+
+static void render_topline(void) {
+    if (topline_mode == TOPLINE_MODE_WPM) {
+        render_wpm_line();
+    } else {
+        render_host_os_line();
+    }
+}
+
 static void render_master_cat(void) {
     int current_wpm = get_current_wpm();
-    int16_t frame_delay = 320 - (current_wpm * 6);
+    uint8_t active_layer = get_highest_layer(layer_state | default_layer_state);
+    // Tuned around ~60 WPM average typing: walk state with medium frame pace.
+    int16_t frame_delay = 360 - (current_wpm * 3);
     const uint8_t cat_line = 1;
     const uint8_t wpm_line = 4;
     const uint8_t layer_line = 5;
@@ -325,8 +385,11 @@ static void render_master_cat(void) {
     const uint8_t lcks_line = 11;
     const uint8_t footer_line = 14;
 
-    if (frame_delay < 80) {
-        frame_delay = 80;
+    if (frame_delay < 110) {
+        frame_delay = 110;
+    }
+    if (frame_delay > 320) {
+        frame_delay = 320;
     }
 
     if (timer_elapsed32(anim_timer) > (uint32_t)frame_delay) {
@@ -334,19 +397,25 @@ static void render_master_cat(void) {
         current_frame ^= 1;
     }
 
+    if (active_layer == 3) {
+        set_oled_topline_mode("wpm");
+    } else {
+        set_oled_topline_mode("host");
+    }
+
     oled_clear();
     oled_set_cursor(0, cat_line);
 
-    if (current_wpm < 8) {
+    if (current_wpm < 20) {
         oled_write_raw_P(sit[current_frame], sizeof(sit[0]));
-    } else if (current_wpm < 24) {
+    } else if (current_wpm <= 40) {
         oled_write_raw_P(walk[current_frame], sizeof(walk[0]));
     } else {
         oled_write_raw_P(run[current_frame], sizeof(run[0]));
     }
 
     oled_set_cursor(0, wpm_line);
-    render_wpm_line();
+    render_topline();
 
     draw_big_text_line(layer_line, layer_label(), false);
 
@@ -367,6 +436,13 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 // }
 
 bool oled_task_user(void) {
+    if (last_input_activity_elapsed() > OLED_TIMEOUT) {
+        oled_off();
+        return false;
+    }
+
+    oled_on();
+
     if (!is_keyboard_master()) {
         render_slave_status();
         return false;

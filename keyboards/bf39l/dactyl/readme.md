@@ -1,12 +1,10 @@
 # dactyl
 
-![dactyl](https://imgur.com/O8kq2SM.jpg)
-
-*A short description of the keyboard/project*
+Custom Dactyl keyboard build for this repository.
 
 * Keyboard Maintainer: [bf39L](https://github.com/bf39l)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
+* Hardware Supported: Dactyl PCB/handwired build, RP2040 controllers
+* Hardware Availability: See the build files and PCB sources in this repository
 
 Manual Compile firmware for this keyboard:
 

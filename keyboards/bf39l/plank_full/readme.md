@@ -1,12 +1,10 @@
 # plank_full
 
-![plank_full](imgur.com image replace me!)
-
-*A short description of the keyboard/project*
+Plank-style keyboard for bf39l built around this repository.
 
 * Keyboard Maintainer: [Bo Liu](https://github.com/bf39L)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
+* Hardware Supported: plank_full PCB, RP2040 controllers
+* Hardware Availability: See the PCB and firmware sources in this repository
 
 Make example for this keyboard (after setting up your build environment):
 

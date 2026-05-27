@@ -1,12 +1,10 @@
 # alix_split
 
-![alix_split](https://imgur.com/O8kq2SM.jpg)
-
-*A short description of the keyboard/project*
+Split keyboard built for bf39l with OLED support and VIA firmware.
 
 * Keyboard Maintainer: [bf39L](https://github.com/bf39l)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
+* Hardware Supported: alix_split PCB, RP2040 controllers
+* Hardware Availability: See the PCB and firmware sources in this repository
 
 Manual Compile firmware for this keyboard:
 

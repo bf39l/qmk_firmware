@@ -1,12 +1,10 @@
 # trackpad
 
-![trackpad](imgur.com image replace me!)
-
-*A short description of the keyboard/project*
+Trackpad companion board for bf39l builds.
 
 * Keyboard Maintainer: [Bo Liu](https://github.com/bf39L)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
+* Hardware Supported: trackpad PCB, supported controllers in this repository
+* Hardware Availability: See the PCB and firmware sources in this repository
 
 Make example for this keyboard (after setting up your build environment):
 

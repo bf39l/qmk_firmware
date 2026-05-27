@@ -6,7 +6,6 @@
     "diode_direction": "COL2ROW",
     "features": {
         "bootmagic": true,
-        "command": false,
         "console": true,
         "extrakey": true,
         "mousekey": true,
@@ -17,7 +16,6 @@
         "rows": ["GP26", "GP22", "GP19", "GP18", "GP17", "GP16"]
     },
     "processor": "RP2040",
-    "url": "",
     "usb": {
         "device_version": "1.0.0",
         "pid": "0x0031",

@@ -1,12 +1,10 @@
 # alix_split_v2
 
-![alix_split_v2](imgur.com image replace me!)
+Split RP2040 keyboard with OLED support and VIA-compatible layouts.
 
-*A short description of the keyboard/project*
-
-* Keyboard Maintainer: [bf39l](https://github.com/bf39l)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
+* Keyboard Maintainer: [bf39L](https://github.com/bf39l)
+* Hardware Supported: Custom alix_split_v2 PCB, RP2040 controllers
+* Hardware Availability: See the PCB and firmware sources in this repository
 
 Make example for this keyboard (after setting up your build environment):
 

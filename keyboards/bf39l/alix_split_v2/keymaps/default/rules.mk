@@ -15,3 +15,4 @@ RAW_ENABLE = yes #
 
 # https://docs.qmk.fm/tap_hold
 DYNAMIC_TAPPING_TERM_ENABLE = yes
+OS_DETECTION_ENABLE = yes
